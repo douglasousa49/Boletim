@@ -1,0 +1,80 @@
+public class App {
+    
+    public static void main(String[] args) throws Exception {
+
+        Boletim boletimBruno = new Boletim();
+        boletimBruno.aluno = "Bruno";
+        boletimBruno.disciplina = "Algoritmo II";
+        boletimBruno.nota1 = 2;
+        boletimBruno.nota2 = 2;
+        boletimBruno.nota3 = 2;
+
+        // boletimBruno.verificarSituacao();
+        // boletimBruno.calcularMedia();
+
+        boletimBruno.rodarBoletim();
+
+        // boletimBruno.media = 10;
+        // boletimBruno.situacao = "Aprovadíssimo";
+        
+        System.out.println("Média Bruno: " + boletimBruno.lerMedia());
+        System.out.println("Situação Bruno: " + boletimBruno.lerSituacao());
+
+
+
+        Boletim boletimMaria = new Boletim();
+        boletimMaria.aluno = "Bruno";
+        boletimMaria.disciplina = "Algoritmo II";
+        boletimMaria.nota1 = 5;
+        boletimMaria.nota2 = 6;
+        boletimMaria.nota3 = 7;
+
+    }
+    
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+public class Boletim {
+    
+    // leitura e escrita
+    public String aluno;
+    public String disciplina;
+    public double nota1;
+    public double nota2;
+    public double nota3;
+
+    // leitura
+    private double media;
+    private String situacao;
+
+    
+    public double lerMedia() {
+        return this.media;
+    }
+
+    public String lerSituacao() {
+        return this.situacao;
+    }
+
+
+
+    public void rodarBoletim() {
+        this.calcularMedia();
+        this.verificarSituacao();
+    }
+
+    private void calcularMedia() {
+        this.media = (this.nota1 + this.nota2 + this.nota3) / 3;
+    }
+
+    private void verificarSituacao() {
+        this.situacao = this.media >= 6 ? "Aprovado" : "DP";
+    }
+
+
+}
